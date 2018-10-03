@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/Controller/MasterLogin.master.cs" Inherits="View_MasterLogin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            text-align: center;
+        }
+        .auto-style3 {
+            width: 677px;
+        }
+        .auto-style4 {
+            width: 32px;
+        }
+        .auto-style6 {
+            width: 921px;
+        }
+        .auto-style7 {
+            text-align: center;
+            font-weight: normal;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:Panel ID="P_Header" runat="server">
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style4" rowspan="3">
+                        <asp:ImageButton ID="ImageButton1" runat="server" CausesValidation="False" Height="173px" ImageUrl="~/Archivos/imagenes/logotipo.jpg" OnClick="ImageButton1_Click1" Width="264px" />
+                    </td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">&nbsp;
+                        <h2 class="auto-style7">A SU SALUD</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style6">&nbsp;</td>
+                </tr>
+            </table>
+
+        </asp:Panel>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <table class="auto-style1">
+            <tr>
+                <td>&nbsp;</td>
+                <td class="auto-style3">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="auto-style3">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="auto-style3">&nbsp;
+                    <h1 class="auto-style2">FOOTER</h1>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
