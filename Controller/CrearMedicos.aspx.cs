@@ -9,7 +9,7 @@ public partial class View_CrearMedicos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //sincronizacion
     }
 
     protected void B_CrearEspecialidad_Click(object sender, EventArgs e)
