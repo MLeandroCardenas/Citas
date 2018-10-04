@@ -15,8 +15,6 @@ public class E_DatosUser
     string clave;
     string Especializacion;
     int rol;
-    string confirmarCorreo;
-    string confirmarClave;
     int estado;
     string session;
     string foto;
@@ -122,33 +120,6 @@ public class E_DatosUser
             rol = value;
         }
     }
-
-    public string ConfirmarCorreo
-    {
-        get
-        {
-            return confirmarCorreo;
-        }
-
-        set
-        {
-            confirmarCorreo = value;
-        }
-    }
-
-    public string ConfirmarClave
-    {
-        get
-        {
-            return confirmarClave;
-        }
-
-        set
-        {
-            confirmarClave = value;
-        }
-    }
-
     public int Estado
     {
         get

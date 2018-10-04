@@ -12,12 +12,14 @@ using System.Web;
 /// </summary>
 public class DAO_Admin
 {
+    
     public DAO_Admin()
     {
     }
 
     public void CrearEspecialidad(string especialidad, string sesion)
     {
+        
         DataTable user = new DataTable();
         NpgsqlConnection conection = new NpgsqlConnection(connectionString: ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
 
@@ -32,7 +34,7 @@ public class DAO_Admin
             }
             catch (Exception Ex)
             {
-
+                
             }
             finally
             {
@@ -62,6 +64,9 @@ public class DAO_Admin
             dataAdapter.SelectCommand.Parameters.Add("_estado", NpgsqlDbType.Integer).Value = medico.Estado;
             dataAdapter.SelectCommand.Parameters.Add("_sesion", NpgsqlDbType.Text).Value = medico.Session;
             dataAdapter.SelectCommand.Parameters.Add("_especializacion", NpgsqlDbType.Text).Value = medico.Especializacion1;
+            dataAdapter.SelectCommand.Parameters.Add("_foto", NpgsqlDbType.Text).Value = medico.Foto;
+            dataAdapter.SelectCommand.Parameters.Add("_url", NpgsqlDbType.Text).Value = medico.Url;
+
             conection.Open();
             dataAdapter.Fill(user);
         }
@@ -103,4 +108,59 @@ public class DAO_Admin
         }
         return Usuario;
     }
+
+    public DataTable obtenermedicos()
+    {
+        DataTable Usuario = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
+
+        try
+        {
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("administrador.f_obtener_medicos", conection);
+            dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            conection.Open();
+            dataAdapter.Fill(Usuario);
+        }
+        catch (Exception Ex)
+        {
+            throw Ex;
+        }
+        finally
+        {
+            if (conection != null)
+            {
+                conection.Close();
+            }
+        }
+        return Usuario;
+    }
+
+
+    public void eliminarMedico(int id)
+    {
+        DataTable user = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(connectionString: ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
+
+        try
+        {
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("administrador.f_borrarmedicos", conection);
+            dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id;
+            
+            conection.Open();
+            dataAdapter.Fill(user);
+        }
+        catch (Exception Ex)
+        {
+
+        }
+        finally
+        {
+            if (conection != null)
+            {
+                conection.Close();
+            }
+        }
+    }
+
 }

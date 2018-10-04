@@ -304,4 +304,35 @@ public class DAO_Usuarios
         }
         return Usuario;
     }
-}
+
+    public void editarperfil(E_DatosUser usuarios)
+    {
+        DataTable user = new DataTable();
+        NpgsqlConnection conection = new NpgsqlConnection(connectionString: ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
+ 
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("usuarios.f_editarperfil", conection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.Add("_id_admin", NpgsqlDbType.Integer).Value = usuarios.Session;
+                dataAdapter.SelectCommand.Parameters.Add("_apellidos", NpgsqlDbType.Text).Value = usuarios.Apellidos;
+                dataAdapter.SelectCommand.Parameters.Add("_nombres", NpgsqlDbType.Text).Value = usuarios.Nombres;
+                dataAdapter.SelectCommand.Parameters.Add("_email", NpgsqlDbType.Text).Value = usuarios.Email;
+                dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Text).Value = usuarios.Clave;
+
+                conection.Open();
+                dataAdapter.Fill(user);
+            }
+            catch (Exception Ex)
+            {
+
+            }
+            finally
+            {
+                if (conection != null)
+                {
+                    conection.Close();
+                }
+            }
+        }
+    }

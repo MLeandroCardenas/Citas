@@ -9,9 +9,6 @@
     .auto-style7 {
         height: 22px;
     }
-        .auto-style8 {
-            width: 1153px;
-        }
         .auto-style9 {
             height: 22px;
             text-align: right;
@@ -48,16 +45,24 @@
             <tr>
                 <td>&nbsp;</td>
                 <td class="auto-style17">
-                    <asp:GridView ID="GV_DatosAdmin" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="auto-style10" DataKeyNames="id" ForeColor="#333333" GridLines="None" AllowSorting="True" DataSourceID="ODS_Perfil">
+                    <asp:GridView ID="GV_DatosAdmin" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="auto-style10" DataKeyNames="id" ForeColor="#333333" GridLines="None" AllowSorting="True" DataSourceID="ODS_Perfiles">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:BoundField DataField="id" HeaderText="ID" Visible="False" />
                             <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
                             <asp:BoundField DataField="nombres" HeaderText="Nombres" />
-                            <asp:BoundField DataField="identificacion" HeaderText="Identificacion" ReadOnly="True" />
+                            <asp:BoundField DataField="identificacion" HeaderText="Identificacion" ReadOnly="True"/>
                             <asp:BoundField DataField="email" HeaderText="Email" />
                             <asp:BoundField DataField="clave" HeaderText="Clave" />
-                            <asp:CommandField ShowEditButton="True" />
+                            <asp:TemplateField HeaderText="Foto">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("foto") %>' ReadOnly="true"></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl='<%# Eval("url") %>'/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:CommandField ShowEditButton="True" ButtonType="Button" />
                         </Columns>
                         <EditRowStyle BackColor="#7C6F57" />
                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -70,7 +75,7 @@
                         <SortedDescendingCellStyle BackColor="#D4DFE1" />
                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
-                    <asp:ObjectDataSource ID="ODS_Perfil" runat="server" SelectMethod="obtenerUsuarios" TypeName="DAO_Usuarios">
+                    <asp:ObjectDataSource ID="ODS_Perfiles" runat="server" DataObjectTypeName="E_DatosUser" SelectMethod="obtenerUsuarios" TypeName="DAO_Usuarios" UpdateMethod="editarperfil">
                         <SelectParameters>
                             <asp:SessionParameter Name="userid" SessionField="id" Type="Int32" />
                         </SelectParameters>

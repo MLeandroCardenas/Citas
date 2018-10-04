@@ -24,10 +24,6 @@ public partial class View_Registro : System.Web.UI.Page
         {
             saveLocation = saveLocation + "\\imagenes\\" + nombreArchivo;
         }
-        else if (extension.Equals(".pdf"))
-        {
-            saveLocation = saveLocation + "\\Pdf\\" + nombreArchivo;
-        }
         else
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El formato del archivo es invalido');</script>");
@@ -65,7 +61,6 @@ public partial class View_Registro : System.Web.UI.Page
             TB_Identificacion.Text = "";
             TB_Email.Text = "";
             TB_Clave.Text = "";
-
         }
         catch (Exception exc)
         {

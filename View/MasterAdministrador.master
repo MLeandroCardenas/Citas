@@ -70,11 +70,11 @@
                         <DynamicMenuStyle BackColor="#FFFBD6" />
                         <DynamicSelectedStyle BackColor="#FFCC66" />
                         <Items>
-                            <asp:MenuItem Text="PERFIL" Value="PERFIL"></asp:MenuItem>
+                            <asp:MenuItem Text="PERFIL" Value="PERFIL" NavigateUrl="~/View/PrincipalAdmin.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="MEDICOS" Value="MEDICOS">
                                 <asp:MenuItem Text="Registrar medico" Value="Registrar medico" NavigateUrl="~/View/CrearMedicos.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Definir tiempo citas" Value="Definir tiempo citas"></asp:MenuItem>
-                                <asp:MenuItem Text="Ver doctores" Value="Ver doctores"></asp:MenuItem>
+                                <asp:MenuItem Text="Ver doctores" Value="Ver doctores" NavigateUrl="~/View/Vermedicos.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Ver usuarios" Value="Ver usuarios"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="PQR" Value="PQR"></asp:MenuItem>
