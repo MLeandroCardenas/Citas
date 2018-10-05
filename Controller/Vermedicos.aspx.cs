@@ -11,4 +11,9 @@ public partial class View_Vermedicos : System.Web.UI.Page
     {
 
     }
+
+    protected void B_Reportemedicos_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReporteMedicos.aspx");
+    }
 }

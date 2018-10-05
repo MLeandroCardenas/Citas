@@ -68,7 +68,7 @@
 &nbsp;<asp:RequiredFieldValidator ID="RFV_apel" runat="server" ControlToValidate="TB_Apellidos" ErrorMessage="*" ForeColor="Red" SetFocusOnError="True" ValidationGroup="form1"></asp:RequiredFieldValidator>
                 &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TB_Apellidos" ErrorMessage="APELLIDOS VALIDOS" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[a-zA-Z ]*$"></asp:RegularExpressionValidator>
                 </td>
-            <td rowspan="12">
+            <td rowspan="15">
                 <asp:Panel ID="P_especialidade" runat="server">
                     <table class="auto-style2">
                         <tr>
@@ -187,6 +187,21 @@
             <td class="auto-style17">
                 <asp:Button ID="B_RegistrarMedico" runat="server" Text="Registrar" ValidationGroup="form1" OnClick="B_RegistrarMedico_Click" />
             &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style11">&nbsp;</td>
+            <td class="auto-style17">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style11">&nbsp;</td>
+            <td class="auto-style17">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style11">&nbsp;</td>
+            <td class="auto-style17">
+                &nbsp;</td>
         </tr>
     </table>
 </asp:Content>
